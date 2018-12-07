@@ -31,7 +31,7 @@ body {
 .top {
     height: 380px;
     background-size: contain;
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.b167d33a.png) center top no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://picsum.photos/380/380) center top no-repeat;
     position: relative;
     display: flex;
     align-items: center;
@@ -288,3 +288,17 @@ h2 {
 .unpaid .item__percentage { box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
 .unpaid:hover .item__description { font-weight: 900; }
 
+
+.prices {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.prices div {
+    font-weight: bold;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

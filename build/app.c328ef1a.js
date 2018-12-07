@@ -443,9 +443,31 @@ var controller = function (budgetCtrl, UICtrl) {
     }
   };
 
+  var getDollar = function getDollar() {
+    var URL = "http://economia.awesomeapi.com.br/USD-BRL/1";
+    fetch(URL).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log('Json object from getData function:');
+      console.log(data);
+      displayData(data);
+    }).catch(function (error) {
+      return console.log('There was an error: ', error);
+    });
+  };
+
+  var displayData = function displayData(data) {
+    var dolarHigh = data[0].high;
+    document.querySelector('#high').innerText = dolarHigh;
+    var dolarLow = data[0].low;
+    document.querySelector('#low').innerText = dolarLow;
+    var dolar = data[0].ask;
+    document.querySelector('#current').innerText = dolar;
+  };
+
   return {
     init: function init() {
-      console.log('Application has started.');
+      getDollar();
       UICtrl.displayMonth();
       UICtrl.displayBudget({
         budget: 0,
@@ -486,7 +508,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52957" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50119" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
